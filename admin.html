@@ -97,9 +97,9 @@ function renderRoundMaster(data){
   const date=document.createElement('div');date.className='round-master-date';date.textContent=roundMasterDate(r.round_at)+' IST';
   main.append(id,date);
   const meta=document.createElement('div');meta.className='round-master-summary-meta';
-  const result=document.createElement('span');result.className='round-master-result';result.textContent='Result: '+(r.winning_number??'—');
-  const pool=document.createElement('span');pool.className='user-role';pool.textContent=roundMasterPoints(r.final_pool)+' final pool';
-  meta.append(result,pool);summaryEl.append(main,meta);details.append(summaryEl);
+  const totalBet=document.createElement('span');totalBet.className='round-master-result';totalBet.textContent='Total bet: '+roundMasterPoints(r.total_input);
+  const participants=document.createElement('span');participants.className='user-role';participants.textContent='Participants: '+String(r.participants||0);
+  meta.append(totalBet,participants);summaryEl.append(main,meta);details.append(summaryEl);
   const body=document.createElement('div');body.className='round-master-body';
   const stats=document.createElement('div');stats.className='round-master-stats';
   const addStat=(label,value)=>{const box=document.createElement('div');box.className='round-master-stat';const l=document.createElement('div');l.className='round-master-stat-label';l.textContent=label;const v=document.createElement('div');v.className='round-master-stat-value';v.textContent=value;box.append(l,v);stats.append(box)};
